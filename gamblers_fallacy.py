@@ -50,11 +50,10 @@ def play_craps():
             game_logger.info('Player loses!')
             return 'lose'
 
-def next_shooter():
+def next_shooter(number_of_shooters = 10_000):
     winnings = 0
-    # play = input('Play next shooter (y for yes): ')
     total_shooters = 0
-    while total_shooters < 10000:
+    while total_shooters < number_of_shooters:
         shooter = True
         shooter_round = 1
         while shooter:
@@ -73,7 +72,10 @@ def next_shooter():
         total_shooters += 1
         if total_shooters % 1000 == 0:
             winnings_logger.info(f'current winnings: {winnings}')
-        # play = input('Play next shooter (y for yes): ')
+
+def get_number_of_shooters():
+    shooters = int(input('How many shooters?\n> '))
+    next_shooter(shooters)
 
 if __name__ == '__main__':
-    next_shooter()
+    get_number_of_shooters()
