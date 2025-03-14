@@ -4,8 +4,22 @@ def heads_or_tails():
     return ['heads', 'tails'][random.randint(0,1)]
 
 def flip_coin(flips=1):
+    tails_count = 0
+    winnings = 0
     for _ in range(flips):
-        print(heads_or_tails())
+        side = heads_or_tails()
+        if side == 'tails':
+            tails_count += 1
+        else:
+            tails_count = 0
+        if tails_count == 9:
+            winnings -= 12800
+            print(winnings)
+        elif tails_count == 0:
+            winnings += 25
+            print(winnings)
+
+
 
 if __name__ == '__main__':
-    flip_coin(10)
+    flip_coin(100000)
