@@ -4,6 +4,7 @@ def heads_or_tails():
     return ['heads', 'tails'][random.randint(0,1)]
 
 def flip_coin(flips=1):
+    """Flips a coin a set number of times"""
     tails_count = 0
     winnings = 0
     for _ in range(flips):
